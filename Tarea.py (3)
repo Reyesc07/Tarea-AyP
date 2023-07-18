@@ -1,0 +1,24 @@
+#Tarea
+#Intenté utilizar el s.push para el código, pero no corría 
+
+def my_stack(arr):
+    s = []
+    
+    for num in arr:
+        if not s:
+            s.append(num)
+        elif num <= s[-1]:
+            s.append(num)
+        else:
+            temp_s = []
+            while s and num > s[-1]:
+                temp_s.append(s.pop())
+            s.append(num)
+            while temp_s:
+                s.append(temp_s.pop())
+            
+    return s
+
+arr = [1, 0, -2, -33, 10]
+stack = my_stack(arr)
+print(stack)  
